@@ -187,7 +187,8 @@ def single_gpu_test(model,
 
 def main():
     args = parse_args()
-
+    print("-"*25)
+    print(args.show_dir)
     assert (
         args.out or args.eval or args.format_only or args.show
         or args.show_dir), (
