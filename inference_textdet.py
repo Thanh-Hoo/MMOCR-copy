@@ -119,7 +119,7 @@ def single_gpu_test(model,
     for i, data in enumerate(data_loader):
         with torch.no_grad():
             # result boundingbox
-            print(data)
+            print(**data)
             result = model(return_loss=False, rescale=True, **data)
 
         batch_size = len(result)
