@@ -293,7 +293,7 @@ def main():
         model = MMDataParallel(model, device_ids=[0])
         is_kie = cfg.model.type in ['SDMGR']
         outputs = single_gpu_test(model, data_loader, args.show, args.show_dir,
-                                  is_kie, args.show_score_thr)
+                                  False, args.show_score_thr)
     else:
         model = MMDistributedDataParallel(
             model.cuda(),
