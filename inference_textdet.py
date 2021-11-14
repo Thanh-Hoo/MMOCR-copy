@@ -119,8 +119,8 @@ def single_gpu_test(model,
     for i, data in enumerate(data_loader):
         with torch.no_grad():
             # result boundingbox
-            img = Image.open("/content/MMOCR-copy/data/imgs/test/0_PVPwIDcHCoL_Jau1fSr3rwlV5W1Vl3aX7xyoK7F14-1.png").dataset
-            result = model(return_loss=False, rescale=True, **img)
+            # img = Image.open("/content/MMOCR-copy/data/imgs/test/0_PVPwIDcHCoL_Jau1fSr3rwlV5W1Vl3aX7xyoK7F14-1.png")
+            result = model(return_loss=False, rescale=True, **data)
 
         batch_size = len(result)
         if show or out_dir:

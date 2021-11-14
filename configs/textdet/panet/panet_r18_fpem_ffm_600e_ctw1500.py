@@ -100,7 +100,7 @@ data = dict(
     test=dict(
         type=dataset_type,
         ann_file=data_root + '/instances_test.json',
-        img_prefix=data_root + '/imgs',
+        img_prefix=data_root + '/imgs/0_Uj7oLWB2CVmBXyWpBwLkRYB-GjNCSWWlKEsjL1cGI-01.png',
         # select_first_k=100,
         pipeline=test_pipeline))
 evaluation = dict(interval=10, metric='hmean-iou')
