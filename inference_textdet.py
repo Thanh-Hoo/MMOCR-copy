@@ -119,7 +119,7 @@ def single_gpu_test(model,
     for i, data in enumerate(data_loader):
         with torch.no_grad():
             result = model(return_loss=False, rescale=True, **data)
-
+            print(result)
         batch_size = len(result)
         if show or out_dir:
             if is_kie:
@@ -293,7 +293,7 @@ def main():
         model = MMDataParallel(model, device_ids=[0])
         is_kie = cfg.model.type in ['SDMGR']
         outputs = single_gpu_test(model, data_loader, args.show, args.show_dir,
-                                  False, args.show_score_thr)
+                                  is_kie, args.show_score_thr)
     else:
         model = MMDistributedDataParallel(
             model.cuda(),
