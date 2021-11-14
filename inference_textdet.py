@@ -16,7 +16,7 @@ from mmcv.runner import (get_dist_info, init_dist, load_checkpoint,
 from mmdet.apis import multi_gpu_test
 from mmdet.core import encode_mask_results
 from mmdet.datasets import replace_ImageToTensor
-
+from PIL import *
 from mmocr.apis.inference import disable_text_recog_aug_test
 from mmocr.datasets import build_dataloader, build_dataset
 from mmocr.models import build_detector
@@ -119,8 +119,9 @@ def single_gpu_test(model,
     for i, data in enumerate(data_loader):
         with torch.no_grad():
             # result boundingbox
-            print(**data)
-            result = model(return_loss=False, rescale=True, data)
+            img = Image.open("/content/MMOCR-copy/data/imgs/test/0_PVPwIDcHCoL_Jau1fSr3rwlV5W1Vl3aX7xyoK7F14-1.png")
+            # print(data)
+            result = model(return_loss=False, rescale=True, **img)
 
         batch_size = len(result)
         if show or out_dir:
