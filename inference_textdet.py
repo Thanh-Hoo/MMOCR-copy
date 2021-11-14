@@ -121,7 +121,7 @@ def single_gpu_test(model,
             # result boundingbox
             img = Image.open("/content/MMOCR-copy/data/imgs/test/0_PVPwIDcHCoL_Jau1fSr3rwlV5W1Vl3aX7xyoK7F14-1.png")
             # print(data)
-            result = model(return_loss=False, rescale=True, **img)
+            result = model(return_loss=False, rescale=True, img)
 
         batch_size = len(result)
         if show or out_dir:
