@@ -22,4 +22,4 @@ for img in glob.glob("/content/MMOCR-copy/data/imgs/test/*"):
     results = ocr.readtext(img, output='hello.jpg', export='./')
     results = convert_xyminmax(results)
     print(results)
-print(time.time() - count_time_1)
+print("Time processing: ",time.time() - count_time_1)
