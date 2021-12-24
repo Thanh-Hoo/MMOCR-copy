@@ -232,7 +232,7 @@ class MMOCR:
             },
             'PANet_CTW': {
                 'config':
-                './configs/textdet/panet/panet_r18_fpem_ffm_600e_ctw1500.py',
+                'panet/panet_r18_fpem_ffm_600e_ctw1500.py',
                 'ckpt':
                 './panet/epoch_20.pth'
             },
