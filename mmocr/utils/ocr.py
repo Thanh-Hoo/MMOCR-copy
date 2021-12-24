@@ -175,14 +175,13 @@ class MMOCR:
                  config_dir=os.path.join(str(Path.cwd()), 'configs/'),
                  device='cuda:0',
                  **kwargs):
-
         textdet_models = {
             'DB_r18': {
                 'config':
-                'dbnet/dbnet_r18_fpnc_1200e_icdar2015.py',
+                'panet/panet_r18_fpem_ffm_600e_ctw1500.py',
                 'ckpt':
-                'dbnet/'
-                'dbnet_r18_fpnc_sbn_1200e_icdar2015_20210329-ba3ab597.pth'
+                'panet/'
+                'epoch_20.pth'
             },
             'DB_r50': {
                 'config':
@@ -233,10 +232,10 @@ class MMOCR:
             },
             'PANet_CTW': {
                 'config':
-                'panet/panet_r18_fpem_ffm_600e_ctw1500.py',
+                '/content/MMOCR-copy/configs/textdet/panet/panet_r18_fpem_ffm_600e_ctw1500.py',
                 'ckpt':
-                'panet/'
-                'panet_r18_fpem_ffm_sbn_600e_ctw1500_20210219-3b3a9aa3.pth'
+                './panet/'
+                'epoch_20.pth'
             },
             'PANet_IC15': {
                 'config':
@@ -341,7 +340,7 @@ class MMOCR:
                 det_config = os.path.join(config_dir, 'textdet/',
                                           textdet_models[self.td]['config'])
             if not det_ckpt:
-                det_ckpt = 'https://download.openmmlab.com/mmocr/textdet/' + \
+                det_ckpt = '' + \
                     textdet_models[self.td]['ckpt']
 
             self.detect_model = init_detector(
@@ -356,7 +355,7 @@ class MMOCR:
                     config_dir, 'textrecog/',
                     textrecog_models[self.tr]['config'])
             if not recog_ckpt:
-                recog_ckpt = 'https://download.openmmlab.com/mmocr/' + \
+                recog_ckpt = '' + \
                     'textrecog/' + textrecog_models[self.tr]['ckpt']
 
             self.recog_model = init_detector(
@@ -426,7 +425,7 @@ class MMOCR:
                                                args.batch_mode,
                                                args.single_batch_size)
                 pp_result = self.single_pp(result, model)
-
+        # print(pp_result)
         return pp_result
 
     # Post processing function for end2end ocr
