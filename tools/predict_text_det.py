@@ -7,7 +7,7 @@ ocr = MMOCR(det='PANet_CTW', recog=None)
 
 def convert_xyminmax(list_box):
     new_list = []
-    for box in list_box[1]["boundary_result"]:
+    for box in list_box[0]["boundary_result"]:
         print(box)
         xmin = min(box[0::2])
         xmax = max(box[0::2])
