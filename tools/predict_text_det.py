@@ -20,6 +20,6 @@ def convert_xyminmax(list_box):
 count_time_1= time.time()
 for img in glob.glob("/content/MMOCR-copy/data/imgs/test/*"):
     results = ocr.readtext(img, output='hello.jpg', export='./')
-    results = convert_xyminmax(results)
+    # results = convert_xyminmax(results)
     print(results)
 print(time.time() - count_time_1)
