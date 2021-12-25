@@ -24,7 +24,7 @@ count_time_1= time.time()
 for img_path in glob.glob("/content/MMOCR-copy/data/imgs/test/*"):
 
     img = cv2.imread(img_path)
-    results = ocr.readtext(img, output='hello.jpg', export='./')
-    results = convert_xyminmax(results)
-    print(results)
+    list_box_results = ocr.readtext(img, output='hello.jpg', export='./')
+    list_box_results = convert_xyminmax(list_box_results)
+    print(list_box_results)
 print("Time processing: ",time.time() - count_time_1)
