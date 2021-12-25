@@ -408,7 +408,7 @@ class MMOCR:
         # Input and output arguments processing
         self._args_processing(args)
         self.args = args
-        print(args.arrays.shape)
+        print(np.shape(np.array(args.arrays)))
         pp_result = None
 
         # Send args and models to the MMOCR model inference API
