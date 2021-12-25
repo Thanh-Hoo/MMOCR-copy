@@ -1,6 +1,9 @@
 from mmocr.utils.ocr import MMOCR
 import time
 import glob
+import cv2
+import PIL
+import numpy as np
 # Load models into memory
 ocr = MMOCR(det='PANet_CTW', recog=None)
 # process bbox
