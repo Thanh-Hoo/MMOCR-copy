@@ -405,11 +405,10 @@ class MMOCR:
         args = locals()
         [args.pop(x, None) for x in ['kwargs', 'self']]
         args = Namespace(**args)
-        new_array = Image.open(img)
         # Input and output arguments processing
         self._args_processing(args)
         self.args = args
-
+        print(args.arrays)
         pp_result = None
 
         # Send args and models to the MMOCR model inference API
@@ -421,7 +420,7 @@ class MMOCR:
         else:
             for model in list(
                     filter(None, [self.recog_model, self.detect_model])):
-                result = self.single_inference(model, new_array,
+                result = self.single_inference(model, args.arrays,
                                                args.batch_mode,
                                                args.single_batch_size)
                 pp_result = self.single_pp(result, model)
