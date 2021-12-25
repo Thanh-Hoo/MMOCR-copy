@@ -408,10 +408,8 @@ class MMOCR:
         # Input and output arguments processing
         self._args_processing(args)
         self.args = args
-        new_img = cv2.imread(img)
-        new_arr = np.array([new_img])
-        # print(new_arr.shape)
-        # print(np.shape(np.array(args.arrays)))
+        # new_img = cv2.imread(img)
+        new_arr = np.array([img])
         pp_result = None
 
         # Send args and models to the MMOCR model inference API

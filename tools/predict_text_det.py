@@ -19,6 +19,7 @@ def convert_xyminmax(list_box):
 # Inference
 count_time_1= time.time()
 for img in glob.glob("/content/MMOCR-copy/data/imgs/test/*"):
+    img = cv2.imread(img)
     results = ocr.readtext(img, output='hello.jpg', export='./')
     results = convert_xyminmax(results)
     print(results)
