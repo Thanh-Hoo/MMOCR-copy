@@ -409,7 +409,7 @@ class MMOCR:
         self._args_processing(args)
         self.args = args
         new_img = cv2.imread(img)
-        print(new_img.shape)
+        print([new_img].shape)
         print(np.shape(np.array(args.arrays)))
         pp_result = None
 
