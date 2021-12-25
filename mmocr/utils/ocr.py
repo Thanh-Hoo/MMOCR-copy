@@ -404,7 +404,7 @@ class MMOCR:
         args = locals()
         [args.pop(x, None) for x in ['kwargs', 'self']]
         args = Namespace(**args)
-
+        print( img)
         # Input and output arguments processing
         self._args_processing(args)
         self.args = args
