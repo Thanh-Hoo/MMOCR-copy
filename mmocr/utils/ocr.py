@@ -408,8 +408,7 @@ class MMOCR:
         # Input and output arguments processing
         self._args_processing(args)
         self.args = args
-        # new_img = cv2.imread(img)
-        new_arr = np.array([img])
+        new_img_arr = np.array([img])
         pp_result = None
 
         # Send args and models to the MMOCR model inference API
@@ -421,11 +420,10 @@ class MMOCR:
         else:
             for model in list(
                     filter(None, [self.recog_model, self.detect_model])):
-                result = self.single_inference(model, new_arr,
+                result = self.single_inference(model, new_img_arr,
                                                args.batch_mode,
                                                args.single_batch_size)
                 pp_result = self.single_pp(result, model)
-        # print(pp_result)
         return pp_result
 
     # Post processing function for end2end ocr
