@@ -410,8 +410,8 @@ class MMOCR:
         self.args = args
         new_img = cv2.imread(img)
         new_arr = np.array([new_img])
-        print(new_arr.shape)
-        print(np.shape(np.array(args.arrays)))
+        # print(new_arr.shape)
+        # print(np.shape(np.array(args.arrays)))
         pp_result = None
 
         # Send args and models to the MMOCR model inference API
@@ -423,7 +423,7 @@ class MMOCR:
         else:
             for model in list(
                     filter(None, [self.recog_model, self.detect_model])):
-                result = self.single_inference(model, args.arrays,
+                result = self.single_inference(model, new_arr,
                                                args.batch_mode,
                                                args.single_batch_size)
                 pp_result = self.single_pp(result, model)
