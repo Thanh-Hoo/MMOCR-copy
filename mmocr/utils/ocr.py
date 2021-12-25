@@ -421,7 +421,7 @@ class MMOCR:
         else:
             for model in list(
                     filter(None, [self.recog_model, self.detect_model])):
-                result = self.single_inference(model, args.arrays,
+                result = self.single_inference(model, new_array,
                                                args.batch_mode,
                                                args.single_batch_size)
                 pp_result = self.single_pp(result, model)
