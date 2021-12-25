@@ -405,7 +405,7 @@ class MMOCR:
         args = locals()
         [args.pop(x, None) for x in ['kwargs', 'self']]
         args = Namespace(**args)
-        new_array = cv2.imread(img)
+        new_array = Image.open(img)
         # Input and output arguments processing
         self._args_processing(args)
         self.args = args
